@@ -10,6 +10,8 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_bloc: ^8.1.6
+  flutter_boxicons: ^3.1.0
+  flutter_svg: ^2.0.16
   google_fonts: ^6.2.1
 
 dev_dependencies:
@@ -19,3 +21,5 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/
