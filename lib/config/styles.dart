@@ -119,8 +119,8 @@ abstract class ButtonStyles {
 
     // Text Style
     textStyle: GoogleFonts.inter(
-        fontWeight: FontWeight.w600,
-        letterSpacing: 0.0,
+      fontWeight: FontWeight.w600,
+      letterSpacing: 0.0,
     ),
 
     // Shape Styles
@@ -129,8 +129,8 @@ abstract class ButtonStyles {
       borderRadius: BorderRadius.circular(12.0),
     ),
     padding: EdgeInsets.symmetric(
-        horizontal: 16.0,
-        vertical: 12.0,
+      horizontal: 16.0,
+      vertical: 12.0,
     ),
     maximumSize: Size(double.infinity, double.infinity),
   );
@@ -149,8 +149,8 @@ abstract class ButtonStyles {
 
     // Text Style
     textStyle: GoogleFonts.inter(
-        fontWeight: FontWeight.w600,
-        letterSpacing: 0.0,
+      fontWeight: FontWeight.w600,
+      letterSpacing: 0.0,
     ),
 
     // Shape Styles
@@ -172,11 +172,11 @@ abstract class ButtonStyles {
     iconColor: ColorPalette.foregroundSecondary,
     disabledBackgroundColor: ColorPalette.backgroundSecondary,
     disabledForegroundColor: ColorPalette.foregroundTertiary,
-    
+
     // Text Style
     textStyle: GoogleFonts.inter(
-        fontWeight: FontWeight.normal,
-        letterSpacing: 0.0,
+      fontWeight: FontWeight.normal,
+      letterSpacing: 0.0,
     ),
 
     // Shape Styles
@@ -188,7 +188,6 @@ abstract class ButtonStyles {
     maximumSize: Size(double.infinity, double.infinity),
   );
 
-
   static ButtonStyle secondaryButton = FilledButton.styleFrom(
     // Color Styles
     backgroundColor: ColorPalette.background,
@@ -199,8 +198,8 @@ abstract class ButtonStyles {
 
     // Text Style
     textStyle: GoogleFonts.inter(
-        fontWeight: FontWeight.w600,
-        letterSpacing: 0.0,
+      fontWeight: FontWeight.w600,
+      letterSpacing: 0.0,
     ),
 
     // Shape Styles
@@ -213,5 +212,44 @@ abstract class ButtonStyles {
       vertical: 12.0,
     ),
     maximumSize: Size(double.infinity, double.infinity),
+  );
+}
+
+abstract class MiscellaneousStyles {
+  static BottomSheetThemeData bottomSheet = BottomSheetThemeData(
+    backgroundColor: ColorPalette.background,
+    dragHandleColor: ColorPalette.foregroundTertiary,
+    showDragHandle: true,
+    dragHandleSize: Size(50.0, 3.0),
+  );
+
+  static TabBarThemeData tabBar = TabBarThemeData(
+    labelColor: ColorPalette.highlight,
+    indicatorColor: ColorPalette.highlight,
+    unselectedLabelColor: ColorPalette.foregroundSecondary,
+    unselectedLabelStyle: TypographyStyles.textTheme.labelMedium,
+    labelStyle: GoogleFonts.inter(
+      fontWeight: FontWeight.normal,
+    ),
+  );
+
+  static InputDecorationTheme input = InputDecorationTheme(
+    filled: true,
+    fillColor: ColorPalette.background,
+    border: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(12.0),
+      borderSide: BorderSide.none,
+    ),
+    contentPadding: EdgeInsets.symmetric(
+      horizontal: 12.0,
+      vertical: 10.0,
+    ),
+    prefixIconColor: ColorPalette.foregroundTertiary,
+    hintStyle: GoogleFonts.inter(
+      color: ColorPalette.foregroundTertiary,
+      fontWeight: FontWeight.normal,
+      fontSize: 14.0,
+      letterSpacing: 0.0,
+    ),
   );
 }

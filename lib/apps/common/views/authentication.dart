@@ -1,26 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_boxicons/flutter_boxicons.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:hestia/utils.dart';
-import 'package:hestia/views/pages/guards/home.dart';
-import 'package:hestia/views/pages/residents/home.dart';
+import 'package:hestia/apps/common/blocs/router/router_cubit.dart';
+import 'package:hestia/config/styles.dart';
 
-// TODO: Replace debug router
-abstract class DebugRouter {
-  static void debugGuards(BuildContext context) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => const GuardsHome()),
-    );
-  }
-
-  static void debugResidents(BuildContext context) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => const ResidentsHome())
-    );
-  }
-}
+// TODO: Add Authentication
+// NOTE: For now the Log In button allows you to see the Residents App and Sign Up button the Guards App 
 
 class AuthenticationPage extends StatelessWidget {
   const AuthenticationPage({super.key});
@@ -33,8 +19,8 @@ class AuthenticationPage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              authenticationHeader(context),
-              authenticationForm(context),
+              _appAuthHeader(context),
+              _appAuthForm(context),
             ],
           ),
         ),
@@ -42,7 +28,7 @@ class AuthenticationPage extends StatelessWidget {
     );
   }
 
-  Container authenticationHeader(BuildContext context) {
+  Container _appAuthHeader(BuildContext context) {
     double authenticationHeaderHeight =
         MediaQuery.of(context).size.height * 0.30 -
             MediaQuery.of(context).padding.vertical;
@@ -73,7 +59,7 @@ class AuthenticationPage extends StatelessWidget {
     );
   }
 
-  SizedBox authenticationForm(BuildContext context) {
+  SizedBox _appAuthForm(BuildContext context) {
     double containerHeight = MediaQuery.of(context).size.height * 0.70;
 
     return SizedBox(
@@ -105,14 +91,14 @@ class AuthenticationPage extends StatelessWidget {
                       horizontal: 48.0,
                       vertical: 32.0,
                     ),
-                    child: loginForm(context),
+                    child: _loginForm(context),
                   ),
                   Padding(
                     padding: EdgeInsets.symmetric(
                       horizontal: 48.0,
                       vertical: 32.0,
                     ),
-                    child: signupForm(context),
+                    child: _signupForm(context),
                   ),
                 ],
               ),
@@ -123,7 +109,7 @@ class AuthenticationPage extends StatelessWidget {
     );
   }
 
-  Column loginForm(BuildContext context) {
+  Column _loginForm(BuildContext context) {
     return Column(
       children: [
         SizedBox(
@@ -141,7 +127,7 @@ class AuthenticationPage extends StatelessWidget {
             ),
           ),
         ),
-        divider(),
+        _divider(),
         TextField(
           style: TypographyStyles.textTheme.bodyMedium,
           decoration: InputDecoration(
@@ -174,7 +160,9 @@ class AuthenticationPage extends StatelessWidget {
         SizedBox(
           width: MediaQuery.of(context).size.width,
           child: FilledButton(
-            onPressed: () => DebugRouter.debugGuards(context),
+            onPressed: () {
+              context.read<RouterCubit>().setUser(UserType.resident);
+            },
             child: Text('Inciar Sesión'),
           ),
         ),
@@ -182,7 +170,7 @@ class AuthenticationPage extends StatelessWidget {
     );
   }
 
-  Column signupForm(BuildContext context) {
+  Column _signupForm(BuildContext context) {
     return Column(
       children: [
         SizedBox(
@@ -200,7 +188,7 @@ class AuthenticationPage extends StatelessWidget {
             ),
           ),
         ),
-        divider(),
+        _divider(),
         TextField(
           style: TypographyStyles.textTheme.bodyMedium,
           decoration: InputDecoration(
@@ -253,7 +241,9 @@ class AuthenticationPage extends StatelessWidget {
         SizedBox(
           width: MediaQuery.of(context).size.width,
           child: FilledButton(
-            onPressed: () => DebugRouter.debugResidents(context),
+            onPressed: () {
+              context.read<RouterCubit>().setUser(UserType.resident);
+            },
             child: Text(
               'Crear Cuenta',
             ),
@@ -263,7 +253,7 @@ class AuthenticationPage extends StatelessWidget {
     );
   }
 
-  Row divider() {
+  Row _divider() {
     return Row(
       children: [
         Expanded(
