@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:hestia/views/widgets/mainContainer.dart';
+import 'package:hestia/apps/common/widgets/main_container.dart';
 
-class ResidentsHome extends StatelessWidget {
-  const ResidentsHome({super.key});
+class GuardsHome extends StatelessWidget {
+  const GuardsHome({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+  return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
@@ -18,7 +18,7 @@ class ResidentsHome extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 MainContainer(
-                  child: Text('Resident\'s Home'),
+                  child: Text('Guard\'s Home'),
                 ),
               ],
             ),
