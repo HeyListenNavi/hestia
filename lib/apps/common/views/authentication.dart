@@ -1,13 +1,14 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_boxicons/flutter_boxicons.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:hestia/apps/common/blocs/router/router_cubit.dart';
+import 'package:hestia/config/routing/router.gr.dart';
 import 'package:hestia/config/styles.dart';
 
 // TODO: Add Authentication
 // NOTE: For now the Log In button allows you to see the Residents App and Sign Up button the Guards App 
 
+@RoutePage()
 class AuthenticationPage extends StatelessWidget {
   const AuthenticationPage({super.key});
 
@@ -161,7 +162,7 @@ class AuthenticationPage extends StatelessWidget {
           width: MediaQuery.of(context).size.width,
           child: FilledButton(
             onPressed: () {
-              context.read<RouterCubit>().setUser(UserType.resident);
+              context.router.replace(ResidentsLayout());
             },
             child: Text('Inciar Sesión'),
           ),
@@ -242,7 +243,7 @@ class AuthenticationPage extends StatelessWidget {
           width: MediaQuery.of(context).size.width,
           child: FilledButton(
             onPressed: () {
-              context.read<RouterCubit>().setUser(UserType.resident);
+              context.router.replace(GuardsLayout());
             },
             child: Text(
               'Crear Cuenta',

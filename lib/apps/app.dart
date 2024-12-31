@@ -1,20 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hestia/apps/common/blocs/router/router_cubit.dart';
+import 'package:hestia/config/routing/router.dart';
 import 'package:hestia/config/styles.dart';
+
+final _appRouter = AppRouter();
 
 class App extends StatelessWidget {
   const App({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final routerCubitState = context.watch<RouterCubit>().state;
-
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       color: ColorPalette.highlight,
       theme: _buildTheme(),
-      routerConfig: routerCubitState.router,
+      routerConfig: _appRouter.config(),
     );
   }
 
@@ -45,6 +44,14 @@ class App extends StatelessWidget {
       inputDecorationTheme: MiscellaneousStyles.input,
       tabBarTheme: MiscellaneousStyles.tabBar,
       bottomSheetTheme: MiscellaneousStyles.bottomSheet,
+      appBarTheme: AppBarTheme(
+        backgroundColor: ColorPalette.background,
+        titleTextStyle: TypographyStyles.textTheme.displayMedium,
+        iconTheme: IconThemeData(
+          color: ColorPalette.highlight,
+        ),
+        titleSpacing: 0.0,
+      ),
     );
   }
 }

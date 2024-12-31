@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:hestia/apps/common/views/main_container.dart';
 
 @RoutePage()
-class GuardsHomePage extends StatelessWidget {
-  const GuardsHomePage({super.key});
+class GuardsCodesLogPage extends StatelessWidget {
+  const GuardsCodesLogPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-  return Scaffold(
+    return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
@@ -20,7 +20,7 @@ class GuardsHomePage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 MainContainer(
-                  child: Text('Guard\'s Home'),
+                  child: Text('History'),
                 ),
               ],
             ),
