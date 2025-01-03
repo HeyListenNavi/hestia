@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:hestia/config/routing/router.dart';
-import 'package:hestia/config/styles.dart';
-
-final _appRouter = AppRouter();
+import 'package:hestia/core/routing/router.dart';
+import 'package:hestia/core/service_locator.dart';
+import 'package:hestia/core/styles.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -13,7 +12,7 @@ class App extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       color: ColorPalette.highlight,
       theme: _buildTheme(),
-      routerConfig: _appRouter.config(),
+      routerConfig: services<AppRouter>().config(),
     );
   }
 

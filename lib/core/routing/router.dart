@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:hestia/config/routing/router.gr.dart';
+import 'package:hestia/core/routing/router.gr.dart';
 
 @AutoRouterConfig()
 class AppRouter extends RootStackRouter {

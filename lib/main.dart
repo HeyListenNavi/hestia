@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:hestia/apps/app.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hestia/core/service_locator.dart';
+import 'package:hestia/presentation/app.dart';
+import 'package:hestia/presentation/common/blocs/blocs.dart';
 
-void main() {
+void main() async {
+  await initializeServices();
   runApp(const Main());
 }
 
@@ -10,6 +14,15 @@ class Main extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return App();
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<AuthenticationBloc>(
+          create: (BuildContext context) {
+            return AuthenticationBloc();
+          },
+        ),
+      ],
+      child: App(),
+    );
   }
 }

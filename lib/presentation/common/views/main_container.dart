@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hestia/config/styles.dart';
+import 'package:hestia/core/styles.dart';
 
 class MainContainer extends StatelessWidget {
   final Color backgroundColor;

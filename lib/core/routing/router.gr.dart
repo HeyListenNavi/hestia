@@ -9,15 +9,15 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:auto_route/auto_route.dart' as _i10;
-import 'package:hestia/apps/common/views/authentication.dart' as _i1;
-import 'package:hestia/apps/guards/views/codes_log.dart' as _i2;
-import 'package:hestia/apps/guards/views/home.dart' as _i3;
-import 'package:hestia/apps/guards/views/layout.dart' as _i4;
-import 'package:hestia/apps/residents/views/account.dart' as _i5;
-import 'package:hestia/apps/residents/views/community.dart' as _i6;
-import 'package:hestia/apps/residents/views/home.dart' as _i7;
-import 'package:hestia/apps/residents/views/layout.dart' as _i8;
-import 'package:hestia/apps/residents/views/services.dart' as _i9;
+import 'package:hestia/presentation/common/views/authentication.dart' as _i1;
+import 'package:hestia/presentation/guards/views/codes_log.dart' as _i2;
+import 'package:hestia/presentation/guards/views/home.dart' as _i3;
+import 'package:hestia/presentation/guards/views/layout.dart' as _i4;
+import 'package:hestia/presentation/residents/views/account.dart' as _i5;
+import 'package:hestia/presentation/residents/views/community.dart' as _i6;
+import 'package:hestia/presentation/residents/views/home.dart' as _i7;
+import 'package:hestia/presentation/residents/views/layout.dart' as _i8;
+import 'package:hestia/presentation/residents/views/services.dart' as _i9;
 
 /// generated route for
 /// [_i1.AuthenticationPage]

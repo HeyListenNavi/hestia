@@ -1,20 +1,22 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_boxicons/flutter_boxicons.dart';
-import 'package:hestia/apps/common/views/app_layout.dart';
-import 'package:hestia/apps/common/views/main_container.dart';
-import 'package:hestia/config/routing/router.gr.dart';
-import 'package:hestia/config/styles.dart';
+import 'package:hestia/presentation/common/views/app_layout.dart';
+import 'package:hestia/presentation/common/views/main_container.dart';
+import 'package:hestia/core/routing/router.gr.dart';
+import 'package:hestia/core/styles.dart';
 
 @RoutePage()
-class GuardsLayout extends StatelessWidget {
-  const GuardsLayout({
+class ResidentsLayout extends StatelessWidget {
+  const ResidentsLayout({
     super.key,
   });
 
   static const List<PageRouteInfo> routes = [
-    GuardsHomeRoute(),
-    GuardsCodesLogRoute(),
+    ResidentsHomeRoute(),
+    ResidentsCommunityRoute(),
+    ResidentsServicesRoute(),
+    ResidentsAccountRoute(),
   ];
 
   @override
@@ -34,7 +36,7 @@ class GuardsLayout extends StatelessWidget {
     );
   }
 
-PreferredSize _headerAppBar() {
+  PreferredSize _headerAppBar() {
     double toolbarHeight = 72.0;
 
     return PreferredSize(
@@ -75,8 +77,13 @@ PreferredSize _headerAppBar() {
           children: [
             _bottomNavigationBarPage(
               router: tabsRouter,
-              actionIndex: routes.indexOf(GuardsHomeRoute()),
+              actionIndex: routes.indexOf(ResidentsHomeRoute()),
               icon: Boxicons.bx_home,
+            ),
+            _bottomNavigationBarPage(
+              router: tabsRouter,
+              actionIndex: routes.indexOf(ResidentsCommunityRoute()),
+              icon: Boxicons.bx_group,
             ),
             IconButton(
               onPressed: () {
@@ -93,8 +100,13 @@ PreferredSize _headerAppBar() {
             ),
             _bottomNavigationBarPage(
               router: tabsRouter,
-              actionIndex: routes.indexOf(GuardsCodesLogRoute()),
-              icon: Boxicons.bx_calendar,
+              actionIndex: routes.indexOf(ResidentsServicesRoute()),
+              icon: Boxicons.bx_wrench,
+            ),
+            _bottomNavigationBarPage(
+              router: tabsRouter,
+              actionIndex: routes.indexOf(ResidentsAccountRoute()),
+              icon: Boxicons.bx_credit_card,
             ),
           ],
         ),
