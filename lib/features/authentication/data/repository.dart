@@ -31,7 +31,7 @@ class AuthenticationRepositoryImpl extends AuthenticationRepository {
         return Left(error);
       },
       (userData) {
-        final user = UserModel.fromJson(userData['usuario']);
+        final user = UserModel.fromJson(userData['usuario']).toEntity();
         return Right(user);
       }
     );
