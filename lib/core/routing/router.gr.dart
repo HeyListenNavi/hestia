@@ -77,20 +77,20 @@ class GuardsHomeRoute extends _i10.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i4.GuardsLayout]
-class GuardsLayout extends _i10.PageRouteInfo<void> {
-  const GuardsLayout({List<_i10.PageRouteInfo>? children})
+/// [_i4.GuardsLayoutPage]
+class GuardsLayoutRoute extends _i10.PageRouteInfo<void> {
+  const GuardsLayoutRoute({List<_i10.PageRouteInfo>? children})
       : super(
-          GuardsLayout.name,
+          GuardsLayoutRoute.name,
           initialChildren: children,
         );
 
-  static const String name = 'GuardsLayout';
+  static const String name = 'GuardsLayoutRoute';
 
   static _i10.PageInfo page = _i10.PageInfo(
     name,
     builder: (data) {
-      return const _i4.GuardsLayout();
+      return const _i4.GuardsLayoutPage();
     },
   );
 }
@@ -153,20 +153,20 @@ class ResidentsHomeRoute extends _i10.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i8.ResidentsLayout]
-class ResidentsLayout extends _i10.PageRouteInfo<void> {
-  const ResidentsLayout({List<_i10.PageRouteInfo>? children})
+/// [_i8.ResidentsLayoutPage]
+class ResidentsLayoutRoute extends _i10.PageRouteInfo<void> {
+  const ResidentsLayoutRoute({List<_i10.PageRouteInfo>? children})
       : super(
-          ResidentsLayout.name,
+          ResidentsLayoutRoute.name,
           initialChildren: children,
         );
 
-  static const String name = 'ResidentsLayout';
+  static const String name = 'ResidentsLayoutRoute';
 
   static _i10.PageInfo page = _i10.PageInfo(
     name,
     builder: (data) {
-      return const _i8.ResidentsLayout();
+      return const _i8.ResidentsLayoutPage();
     },
   );
 }

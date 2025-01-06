@@ -16,7 +16,7 @@ class AppRouter extends RootStackRouter {
         initial: true,
       ),
       AutoRoute(
-        page: ResidentsLayout.page,
+        page: ResidentsLayoutRoute.page,
         children: [
           AutoRoute(page: ResidentsHomeRoute.page),
           AutoRoute(page: ResidentsCommunityRoute.page),
@@ -25,7 +25,7 @@ class AppRouter extends RootStackRouter {
         ],
       ),
       AutoRoute(
-        page: GuardsLayout.page,
+        page: GuardsLayoutRoute.page,
         children: [
           AutoRoute(page: GuardsHomeRoute.page),
           AutoRoute(page: GuardsCodesLogRoute.page)

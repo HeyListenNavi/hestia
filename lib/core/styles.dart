@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 abstract class ColorPalette {
@@ -19,6 +20,7 @@ abstract class ColorPalette {
 
   // Util colors
   static const Color transparent = Color(0x00000000);
+  static const Color error = Color(0xffbb1b1b);
 }
 
 abstract class TypographyStyles {
@@ -31,7 +33,7 @@ abstract class TypographyStyles {
   static const double fontSizeXSmall = 12.0;
 
   // Text Styles
-  static TextTheme textTheme = TextTheme(
+  static final TextTheme textTheme = TextTheme(
     // Display
     displayLarge: GoogleFonts.inter(
       fontWeight: FontWeight.bold,
@@ -109,7 +111,7 @@ abstract class TypographyStyles {
 }
 
 abstract class ButtonStyles {
-  static ButtonStyle filledButton = FilledButton.styleFrom(
+  static final ButtonStyle filledButton = FilledButton.styleFrom(
     // Color Styles
     backgroundColor: ColorPalette.highlight,
     foregroundColor: ColorPalette.foregroundLight,
@@ -135,7 +137,7 @@ abstract class ButtonStyles {
     maximumSize: Size(double.infinity, double.infinity),
   );
 
-  static ButtonStyle outlineButton = OutlinedButton.styleFrom(
+  static final ButtonStyle outlineButton = OutlinedButton.styleFrom(
     // Color Styles
     backgroundColor: ColorPalette.transparent,
     foregroundColor: ColorPalette.foregroundTertiary,
@@ -165,7 +167,7 @@ abstract class ButtonStyles {
     maximumSize: Size(double.infinity, double.infinity),
   );
 
-  static ButtonStyle textButton = TextButton.styleFrom(
+  static final ButtonStyle textButton = TextButton.styleFrom(
     // Color Styles
     backgroundColor: ColorPalette.transparent,
     foregroundColor: ColorPalette.foregroundSecondary,
@@ -188,7 +190,7 @@ abstract class ButtonStyles {
     maximumSize: Size(double.infinity, double.infinity),
   );
 
-  static ButtonStyle secondaryButton = FilledButton.styleFrom(
+  static final ButtonStyle secondaryButton = FilledButton.styleFrom(
     // Color Styles
     backgroundColor: ColorPalette.background,
     foregroundColor: ColorPalette.foregroundSecondary,
@@ -216,14 +218,14 @@ abstract class ButtonStyles {
 }
 
 abstract class MiscellaneousStyles {
-  static BottomSheetThemeData bottomSheet = BottomSheetThemeData(
+  static final BottomSheetThemeData bottomSheet = BottomSheetThemeData(
     backgroundColor: ColorPalette.background,
     dragHandleColor: ColorPalette.foregroundTertiary,
     showDragHandle: true,
     dragHandleSize: Size(50.0, 3.0),
   );
 
-  static TabBarThemeData tabBar = TabBarThemeData(
+  static final TabBarThemeData tabBar = TabBarThemeData(
     labelColor: ColorPalette.highlight,
     indicatorColor: ColorPalette.highlight,
     unselectedLabelColor: ColorPalette.foregroundSecondary,
@@ -233,7 +235,7 @@ abstract class MiscellaneousStyles {
     ),
   );
 
-  static InputDecorationTheme input = InputDecorationTheme(
+  static final InputDecorationTheme input = InputDecorationTheme(
     filled: true,
     fillColor: ColorPalette.background,
     border: OutlineInputBorder(
@@ -241,15 +243,37 @@ abstract class MiscellaneousStyles {
       borderSide: BorderSide.none,
     ),
     contentPadding: EdgeInsets.symmetric(
-      horizontal: 12.0,
-      vertical: 10.0,
+      horizontal: 6.0,
+      vertical: 4.0,
+    ),
+    errorStyle: GoogleFonts.inter(
+      color: ColorPalette.error,
+      fontSize: TypographyStyles.fontSizeXSmall,
     ),
     prefixIconColor: ColorPalette.foregroundTertiary,
+    suffixIconColor: ColorPalette.foregroundTertiary,
     hintStyle: GoogleFonts.inter(
       color: ColorPalette.foregroundTertiary,
       fontWeight: FontWeight.normal,
-      fontSize: 14.0,
+      fontSize: TypographyStyles.fontSizeSmall,
       letterSpacing: 0.0,
     ),
+  );
+
+  static final AppBarTheme appBar = AppBarTheme(
+    backgroundColor: ColorPalette.background,
+    titleTextStyle: TypographyStyles.textTheme.displayMedium,
+    iconTheme: IconThemeData(
+      color: ColorPalette.highlight,
+    ),
+    titleSpacing: 0.0,
+  );
+}
+
+abstract class CustomIcons {
+  static final SvgPicture googleIcon = SvgPicture.asset(
+    'assets/google_logo.svg',
+    width: 22.0,
+    height: 22.0,
   );
 }

@@ -43,14 +43,7 @@ class App extends StatelessWidget {
       inputDecorationTheme: MiscellaneousStyles.input,
       tabBarTheme: MiscellaneousStyles.tabBar,
       bottomSheetTheme: MiscellaneousStyles.bottomSheet,
-      appBarTheme: AppBarTheme(
-        backgroundColor: ColorPalette.background,
-        titleTextStyle: TypographyStyles.textTheme.displayMedium,
-        iconTheme: IconThemeData(
-          color: ColorPalette.highlight,
-        ),
-        titleSpacing: 0.0,
-      ),
+      appBarTheme: MiscellaneousStyles.appBar,
     );
   }
 }

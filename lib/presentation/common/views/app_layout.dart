@@ -4,13 +4,13 @@ import 'package:flutter/material.dart';
 class AppLayout extends StatelessWidget {
   final List<PageRouteInfo> routes;
   final PageRouteInfo homeRoute;
-  final Widget Function(BuildContext, Widget)? layout;
+  final Widget Function(BuildContext, Widget)? layoutBuilder;
 
   const AppLayout({
     super.key,
     required this.routes,
     required this.homeRoute,
-    this.layout,
+    this.layoutBuilder,
   });
 
   @override
@@ -34,7 +34,7 @@ class AppLayout extends StatelessWidget {
             tabsRouter.back();
             hasPopped = true;
           },
-          child: layout != null ? layout!(context, child) : child,
+          child: layoutBuilder != null ? layoutBuilder!(context, child) : child,
         );
       },
     );

@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:hestia/presentation/common/views/main_container.dart';
+import 'package:hestia/presentation/common/views/widgets/main_container.dart';
 
 @RoutePage()
 class ResidentsHomePage extends StatelessWidget {

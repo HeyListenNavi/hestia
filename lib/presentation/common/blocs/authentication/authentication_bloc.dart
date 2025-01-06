@@ -1,7 +1,5 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hestia/core/routing/router.dart';
-import 'package:hestia/core/routing/router.gr.dart';
 import 'package:hestia/core/service_locator.dart';
 import 'package:hestia/features/authentication/data/models.dart';
 import 'package:hestia/features/authentication/domain/use_cases.dart';
@@ -22,7 +20,6 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> 
           },
           (data) {
             emit(AuthenticationSuccess(data.name));
-            services<AppRouter>().replace(ResidentsLayout());
           },
         );
       }
@@ -38,7 +35,6 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> 
           },
           (data) {
             emit(AuthenticationSuccess(data.name));
-            services<AppRouter>().replace(ResidentsLayout());
           }
         );
       }

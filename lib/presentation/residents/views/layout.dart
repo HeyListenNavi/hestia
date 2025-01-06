@@ -2,13 +2,13 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_boxicons/flutter_boxicons.dart';
 import 'package:hestia/presentation/common/views/app_layout.dart';
-import 'package:hestia/presentation/common/views/main_container.dart';
+import 'package:hestia/presentation/common/views/widgets/main_container.dart';
 import 'package:hestia/core/routing/router.gr.dart';
 import 'package:hestia/core/styles.dart';
 
 @RoutePage()
-class ResidentsLayout extends StatelessWidget {
-  const ResidentsLayout({
+class ResidentsLayoutPage extends StatelessWidget {
+  const ResidentsLayoutPage({
     super.key,
   });
 
@@ -24,7 +24,7 @@ class ResidentsLayout extends StatelessWidget {
     return AppLayout(
       routes: routes,
       homeRoute: routes[0],
-      layout: (context, child) {
+      layoutBuilder: (context, child) {
         return Scaffold(
           appBar: _headerAppBar(),
           body: SafeArea(
