@@ -4,7 +4,7 @@ abstract class ApiEndpoints {
   static const singUp = '${_baseUrl}register';
   static const logIn = '${_baseUrl}login';
 
-  static const createCode = '${_baseUrl}codigo';
-  static const accessCode = '${_baseUrl}codigo';
-  static const readCode = '${_baseUrl}codigo/escanear';
+  static const createCode = '${_baseUrl}code';
+  static const accessCode = '${_baseUrl}code';
+  static const readCode = '${_baseUrl}code/scan';
 }
