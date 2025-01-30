@@ -15,7 +15,7 @@ class AuthenticationRepositoryImpl extends AuthenticationRepository {
         return Left(error);
       },
       (userData) async {
-        final user = UserModel.fromJson(userData['usuario']).toEntity();
+        final user = UserModel.fromJson(userData['user']).toEntity();
         await services<FlutterSecureStorage>().write(key: 'authentication_token', value: userData['token']);
         return Right(user);
       },
@@ -31,7 +31,7 @@ class AuthenticationRepositoryImpl extends AuthenticationRepository {
         return Left(error);
       },
       (userData) {
-        final user = UserModel.fromJson(userData['usuario']);
+        final user = UserModel.fromJson(userData['user']);
         return Right(user);
       }
     );
