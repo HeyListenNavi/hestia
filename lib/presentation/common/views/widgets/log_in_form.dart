@@ -34,12 +34,12 @@ class LogInForm extends StatelessWidget {
                 ),
               ),
               OrDivider(),
-              FormTextField(
+              FormTextField.white(
                 name: 'email',
                 hintText: 'Dirección de correo electrónico',
                 icon: Boxicons.bx_envelope,
               ),
-              FormTextField(
+              FormTextField.white(
                 name: 'password',
                 hintText: 'Contraseña',
                 icon: Boxicons.bx_lock,
@@ -72,8 +72,10 @@ class LogInForm extends StatelessWidget {
                     context.read<AuthenticationBloc>().add(
                           AuthenticationLogIn(
                             LogInParameters(
-                              email: formValues?['email'],
-                              password: formValues?['password'],
+                              // email: formValues?['email'],
+                              // password: formValues?['password'],
+                              email: 'juan.perez@example.com',
+                              password: 'contrasena',
                             ),
                           ),
                         );
