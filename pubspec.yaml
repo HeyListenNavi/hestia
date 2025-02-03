@@ -11,17 +11,22 @@ dependencies:
   dartz: ^0.10.1
   dio: ^5.7.0
   equatable: ^2.0.7
+  expandable_page_view: ^1.0.17
   flutter:
     sdk: flutter
   flutter_bloc: ^8.1.6
-  flutter_boxicons: ^3.1.0
+  flutter_boxicons: ^3.2.0
   flutter_form_builder: ^9.7.0
+  flutter_localizations:
+    sdk: flutter
   flutter_secure_storage: ^9.2.3
   flutter_svg: ^2.0.16
   form_builder_validators: ^11.1.1
   get_it: ^8.0.3
   google_fonts: ^6.2.1
+  intl: any
   network_info_plus: ^6.1.2
+  qr_flutter: ^4.1.0
 
 dev_dependencies:
   flutter_test:
