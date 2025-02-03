@@ -27,8 +27,8 @@ abstract class TypographyStyles {
   // Font Sizes
   static const double fontSizeXXLarge = 64.0;
   static const double fontSizeXLarge = 40.0;
-  static const double fontSizeLarge = 24.0;
-  static const double fontSizeMedium = 16.0;
+  static const double fontSizeLarge = 26.0;
+  static const double fontSizeMedium = 18.0;
   static const double fontSizeSmall = 14.0;
   static const double fontSizeXSmall = 12.0;
 
@@ -137,6 +137,32 @@ abstract class ButtonStyles {
     maximumSize: Size(double.infinity, double.infinity),
   );
 
+  static final ButtonStyle inactiveButton = FilledButton.styleFrom(
+    // Color Styles
+    backgroundColor: ColorPalette.highlight,
+    foregroundColor: ColorPalette.foregroundLight,
+    iconColor: ColorPalette.foregroundLight,
+    disabledBackgroundColor: ColorPalette.backgroundSecondary,
+    disabledForegroundColor: ColorPalette.foregroundTertiary,
+
+    // Text Style
+    textStyle: GoogleFonts.inter(
+      fontWeight: FontWeight.w600,
+      letterSpacing: 0.0,
+    ),
+
+    // Shape Styles
+    alignment: Alignment.center,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(12.0),
+    ),
+    padding: EdgeInsets.symmetric(
+      horizontal: 16.0,
+      vertical: 12.0,
+    ),
+    maximumSize: Size(double.infinity, double.infinity),
+  );
+
   static final ButtonStyle outlineButton = OutlinedButton.styleFrom(
     // Color Styles
     backgroundColor: ColorPalette.transparent,
@@ -215,6 +241,46 @@ abstract class ButtonStyles {
     ),
     maximumSize: Size(double.infinity, double.infinity),
   );
+
+  static final ButtonStyle bigIconButton = IconButton.styleFrom(
+    // Color Styles
+    backgroundColor: ColorPalette.highlight,
+    foregroundColor: ColorPalette.foregroundLight,
+    disabledBackgroundColor: ColorPalette.backgroundSecondary,
+    disabledForegroundColor: ColorPalette.foregroundTertiary,
+    iconSize: 44.0,
+
+    // Shape Styles
+    alignment: Alignment.center,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(12.0),
+    ),
+    padding: EdgeInsets.symmetric(
+      horizontal: 16.0,
+      vertical: 12.0,
+    ),
+    maximumSize: Size(double.infinity, double.infinity),
+  );
+
+  static final ButtonStyle secondaryBigIconButton = IconButton.styleFrom(
+    // Color Styles
+    backgroundColor: ColorPalette.background,
+    foregroundColor: ColorPalette.highlight,
+    disabledBackgroundColor: ColorPalette.backgroundSecondary,
+    disabledForegroundColor: ColorPalette.foregroundTertiary,
+    iconSize: 44.0,
+
+    // Shape Styles
+    alignment: Alignment.center,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(12.0),
+    ),
+    padding: EdgeInsets.symmetric(
+      horizontal: 16.0,
+      vertical: 12.0,
+    ),
+    maximumSize: Size(double.infinity, double.infinity),
+  );
 }
 
 abstract class MiscellaneousStyles {
@@ -237,13 +303,13 @@ abstract class MiscellaneousStyles {
 
   static final InputDecorationTheme input = InputDecorationTheme(
     filled: true,
-    fillColor: ColorPalette.background,
+    fillColor: ColorPalette.backgroundSecondary,
     border: OutlineInputBorder(
       borderRadius: BorderRadius.circular(12.0),
       borderSide: BorderSide.none,
     ),
     contentPadding: EdgeInsets.symmetric(
-      horizontal: 6.0,
+      horizontal: 12.0,
       vertical: 4.0,
     ),
     errorStyle: GoogleFonts.inter(
@@ -267,6 +333,17 @@ abstract class MiscellaneousStyles {
       color: ColorPalette.highlight,
     ),
     titleSpacing: 0.0,
+  );
+
+  static final DatePickerThemeData datePicker = DatePickerThemeData(
+    backgroundColor: ColorPalette.background,
+    confirmButtonStyle: ButtonStyles.filledButton,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(12.0),
+    ),
+    inputDecorationTheme: InputDecorationTheme(
+      contentPadding: EdgeInsets.all(12.0),
+    ),
   );
 }
 
