@@ -11,9 +11,9 @@ class UserModel extends User {
 
   factory UserModel.fromJson(Map<String, dynamic> json) {
     return UserModel(
-      name: json['nombre'],
-      secondName: json['apellido'],
-      email: json['correo'],
+      name: json['name'],
+      secondName: json['last_name'],
+      email: json['email'],
     );
   }
 
@@ -47,11 +47,11 @@ class SignUpParameters extends ApiParameters {
   @override
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
-      'nombre': name,
-      'apellido': secondName,
-      'telefono': phoneNumber,
-      'correo': email,
-      'contrasena': password,
+      'name': name,
+      'last_name': secondName,
+      'phone_number': phoneNumber,
+      'email': email,
+      'password': password,
     };
   }
 }
@@ -68,8 +68,8 @@ class LogInParameters extends ApiParameters {
   @override
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
-      'correo': email,
-      'contrasena': password,
+      'email': email,
+      'password': password,
     };
   }
 }
