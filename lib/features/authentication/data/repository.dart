@@ -7,8 +7,8 @@ import 'package:hestia/features/authentication/domain/repository.dart';
 
 class AuthenticationRepositoryImpl extends AuthenticationRepository {
   @override
-  Future<Either> signUp(SignUpParameters parameters) async {
-    Either result = await services<ApiDataSource>().signUp(parameters);
+  Future<Either> logIn(LogInParameters parameters) async {
+    Either result = await services<ApiDataSource>().logIn(parameters);
 
     return result.fold(
       (error) {
@@ -17,21 +17,6 @@ class AuthenticationRepositoryImpl extends AuthenticationRepository {
       (userData) async {
         final user = UserModel.fromJson(userData['user']).toEntity();
         await services<FlutterSecureStorage>().write(key: 'authentication_token', value: userData['token']);
-        return Right(user);
-      },
-    );
-  }
-
-  @override
-  Future<Either> logIn(LogInParameters parameters) async {
-    Either result = await services<ApiDataSource>().logIn(parameters);
-
-    return result.fold(
-      (error) {
-        return Left(error);
-      },
-      (userData) {
-        final user = UserModel.fromJson(userData['user']);
         return Right(user);
       }
     );

@@ -32,10 +32,6 @@ Future<void> initializeServices() async {
     AuthenticationRepositoryImpl()
   );
 
-  services.registerLazySingleton<SignUpUseCase>(() {
-    return SignUpUseCase(repository: services<AuthenticationRepository>());
-  });
-
   services.registerLazySingleton<LogInUseCase>(() {
     return LogInUseCase(repository: services<AuthenticationRepository>());
   });

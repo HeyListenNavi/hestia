@@ -7,13 +7,12 @@ import 'package:hestia/core/service_locator.dart';
 import 'package:hestia/core/styles.dart';
 import 'package:hestia/presentation/common/blocs/blocs.dart';
 import 'package:hestia/presentation/common/views/widgets/log_in_form.dart';
-import 'package:hestia/presentation/common/views/widgets/sign_up_form.dart';
 
 @RoutePage()
 class AuthenticationPage extends StatelessWidget {
   const AuthenticationPage({super.key});
 
-  static const _headerHeight = 240.0;
+  static const _headerHeight = 250.0;
 
   @override
   Widget build(BuildContext context) {
@@ -24,19 +23,36 @@ class AuthenticationPage extends StatelessWidget {
     return BlocListener<AuthenticationBloc, AuthenticationState>(
       listener: (BuildContext context, AuthenticationState state) {
         if (state is AuthenticationSuccess) {
-          services<AppRouter>().replace(ResidentsLayoutRoute());
+          services<AppRouter>()
+              .replace(ResidentsLayoutRoute(userName: state.name));
+        }
+        if (state is AuthenticationFailure) {
+          SnackBar errorSnackBar = SnackBar(
+            content: Text(state.errorMessage),
+          );
+
+          ScaffoldMessenger.of(context).showSnackBar(errorSnackBar);
         }
       },
       child: Scaffold(
-        body: DefaultTabController(
-          initialIndex: 0,
-          length: 2,
-          child: SafeArea(
+        body: SafeArea(
+          child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 _appAuthHeader(context),
-                _appAuthForm(context, containerHeight),
+                ConstrainedBox(
+                  constraints: BoxConstraints(
+                    minHeight: containerHeight,
+                  ),
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 48.0,
+                      vertical: 32.0,
+                    ),
+                    child: LogInForm(),
+                  ),
+                ),
               ],
             ),
           ),
@@ -68,13 +84,6 @@ class AuthenticationPage extends StatelessWidget {
               ],
             ),
           ),
-          TabBar(
-            indicatorSize: TabBarIndicatorSize.tab,
-            tabs: [
-              Tab(child: Text('Iniciar Sesión')),
-              Tab(child: Text('Registrarse')),
-            ],
-          ),
         ],
       ),
     );
@@ -82,17 +91,9 @@ class AuthenticationPage extends StatelessWidget {
 
   Expanded _appAuthForm(BuildContext context, double containerHeight) {
     return Expanded(
-      child: TabBarView(
-        children: [
-          _tabVarViewContainer(
-            height: containerHeight,
-            child: LogInForm(),
-          ),
-          _tabVarViewContainer(
-            height: containerHeight,
-            child: SignUpForm(),
-          )
-        ],
+      child: _tabVarViewContainer(
+        height: containerHeight,
+        child: LogInForm(),
       ),
     );
   }
