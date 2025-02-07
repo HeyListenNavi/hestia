@@ -15,7 +15,7 @@ class AuthenticationRepositoryImpl extends AuthenticationRepository {
         return Left(error);
       },
       (userData) async {
-        final user = UserModel.fromJson(userData['user']).toEntity();
+        final user = UserModel.fromJson(userData).toEntity();
         await services<FlutterSecureStorage>().write(key: 'authentication_token', value: userData['token']);
         return Right(user);
       }

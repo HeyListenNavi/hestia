@@ -11,52 +11,21 @@ class UserModel extends User {
 
   factory UserModel.fromJson(Map<String, dynamic> json) {
     return UserModel(
-      name: json['name'],
-      secondName: json['last_name'],
-      email: json['email'],
+      name: json['user']['name'],
+      secondName: json['user']['last_name'],
+      email: json['user']['email'],
     );
   }
 
   User toEntity() {
     return User(
-      name: '$name $secondName',
+      name: name,
       email: email,
     );
   }
 }
 
-abstract class ApiParameters {
-  Map<String, dynamic> toJson();
-}
-
-class SignUpParameters extends ApiParameters {
-  final String name;
-  final String secondName;
-  final String phoneNumber;
-  final String email;
-  final String password;
-
-  SignUpParameters({
-    required this.name,
-    required this.email,
-    required this.secondName,
-    required this.phoneNumber,
-    required this.password,
-  });
-
-  @override
-  Map<String, dynamic> toJson() {
-    return <String, dynamic>{
-      'name': name,
-      'last_name': secondName,
-      'phone_number': phoneNumber,
-      'email': email,
-      'password': password,
-    };
-  }
-}
-
-class LogInParameters extends ApiParameters {
+class LogInParameters {
   final String email;
   final String password;
 
@@ -65,7 +34,6 @@ class LogInParameters extends ApiParameters {
     required this.password,
   });
 
-  @override
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
       'email': email,

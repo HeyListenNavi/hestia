@@ -5,7 +5,7 @@ import 'package:hestia/core/service_locator.dart';
 import 'package:hestia/features/authentication/data/models.dart';
 
 class ApiDataSource {
-  Future<Either> logIn(ApiParameters parameters) async {
+  Future<Either> logIn(LogInParameters parameters) async {
     final Response response = await services<Dio>().post(
       ApiEndpoints.logIn,
       data: parameters.toJson(),
