@@ -21,6 +21,16 @@ class Main extends StatelessWidget {
             return AuthenticationBloc();
           },
         ),
+        BlocProvider<HasPoppedCubit>(
+          create: (BuildContext context) {
+            return HasPoppedCubit();
+          },
+        ),
+        BlocProvider<CreateInvitationBloc>(
+          create: (BuildContext context) {
+            return CreateInvitationBloc();
+          },
+        )
       ],
       child: App(),
     );

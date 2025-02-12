@@ -74,7 +74,7 @@ class LogInForm extends StatelessWidget {
                             LogInParameters(
                               // email: formValues?['email'],
                               // password: formValues?['password'],
-                              email: 'juan.perez@example.com',
+                              email: 'prince.kerluke@example.net',
                               password: 'contrasena',
                             ),
                           ),

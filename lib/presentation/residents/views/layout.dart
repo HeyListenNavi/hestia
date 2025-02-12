@@ -20,7 +20,7 @@ class ResidentsLayoutPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final List<PageRouteInfo> routes = [
       ResidentsHomeRoute(userName: userName),
-      ResidentsCommunityRoute(),
+      CommunityShell(),
       ResidentsServicesRoute(),
       ResidentsAccountRoute(),
     ];

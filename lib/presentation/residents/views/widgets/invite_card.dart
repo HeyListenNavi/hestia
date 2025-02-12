@@ -41,6 +41,7 @@ class InvitationCard extends StatelessWidget {
 
     return InkWell(
       onTap: () {
+        context.router.push(ResidentsCommunityCodes());
       },
       child: Container(
         padding: EdgeInsets.all(12.0),

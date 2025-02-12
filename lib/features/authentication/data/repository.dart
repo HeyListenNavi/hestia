@@ -8,7 +8,7 @@ import 'package:hestia/features/authentication/domain/repository.dart';
 class AuthenticationRepositoryImpl extends AuthenticationRepository {
   @override
   Future<Either> logIn(LogInParameters parameters) async {
-    Either result = await services<ApiDataSource>().logIn(parameters);
+    Either result = await services<AuthenticationApiDataSource>().logIn(parameters);
 
     return result.fold(
       (error) {

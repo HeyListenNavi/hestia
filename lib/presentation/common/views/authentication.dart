@@ -41,17 +41,12 @@ class AuthenticationPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 _appAuthHeader(context),
-                ConstrainedBox(
-                  constraints: BoxConstraints(
-                    minHeight: containerHeight,
+                Padding(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 48.0,
+                    vertical: 32.0,
                   ),
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: 48.0,
-                      vertical: 32.0,
-                    ),
-                    child: LogInForm(),
-                  ),
+                  child: LogInForm(),
                 ),
               ],
             ),
@@ -77,7 +72,7 @@ class AuthenticationPage extends StatelessWidget {
                   style: Theme.of(context).textTheme.displayLarge,
                 ),
                 Text(
-                  'Inicia sesión o registrate y toma el control',
+                  'Inicia sesión y toma el control',
                   style: Theme.of(context).textTheme.labelMedium,
                   textAlign: TextAlign.center,
                 ),
@@ -85,33 +80,6 @@ class AuthenticationPage extends StatelessWidget {
             ),
           ),
         ],
-      ),
-    );
-  }
-
-  Expanded _appAuthForm(BuildContext context, double containerHeight) {
-    return Expanded(
-      child: _tabVarViewContainer(
-        height: containerHeight,
-        child: LogInForm(),
-      ),
-    );
-  }
-
-  SingleChildScrollView _tabVarViewContainer(
-      {required double height, required Widget child}) {
-    return SingleChildScrollView(
-      child: ConstrainedBox(
-        constraints: BoxConstraints(
-          minHeight: height,
-        ),
-        child: Padding(
-          padding: EdgeInsets.symmetric(
-            horizontal: 48.0,
-            vertical: 32.0,
-          ),
-          child: child,
-        ),
       ),
     );
   }

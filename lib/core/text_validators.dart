@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 
-abstract class TextValidators {
-  static final FormFieldValidator<String> required =
-      FormBuilderValidators.required(
+abstract class InputFieldValidators {
+  static final FormFieldValidator required = FormBuilderValidators.required(
     errorText: 'Este campo es obligatorio',
   );
 
@@ -17,8 +16,7 @@ abstract class TextValidators {
     errorText: 'Usa solo letras y comienza con mayúscula',
   );
 
-  static final FormFieldValidator<String> email =
-      FormBuilderValidators.email(
+  static final FormFieldValidator<String> email = FormBuilderValidators.email(
     errorText: 'Ingresa un correo válido (como ejemplo@dominio.com)',
   );
 
@@ -26,6 +24,9 @@ abstract class TextValidators {
       FormBuilderValidators.phoneNumber(
     errorText: 'El número debe tener 10 dígitos',
   );
+
+  static final FormFieldValidator<String> numeric =
+      FormBuilderValidators.numeric(errorText: 'Ingresa unicamente números');
 
   static final FormFieldValidator<String> password =
       FormBuilderValidators.password(
@@ -45,5 +46,12 @@ abstract class TextValidators {
       }
       return null;
     };
+  }
+
+  static String? futureDate(DateTime? value) {
+    if (value!.isBefore(DateTime.now())) {
+      return 'La fecha debe ser futura';
+    }
+    return null;
   }
 }

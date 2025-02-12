@@ -345,6 +345,30 @@ abstract class MiscellaneousStyles {
       contentPadding: EdgeInsets.all(12.0),
     ),
   );
+
+  static final TimePickerThemeData timePicker = TimePickerThemeData(
+    backgroundColor: ColorPalette.background,
+    confirmButtonStyle: ButtonStyles.filledButton,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(12.0),
+    ),
+    inputDecorationTheme: InputDecorationTheme(
+      contentPadding: EdgeInsets.all(12.0),
+    ),
+    dialBackgroundColor: ColorPalette.backgroundSecondary,
+    entryModeIconColor: ColorPalette.foregroundTertiary,
+    dayPeriodColor: ColorPalette.highlight,
+    hourMinuteColor: WidgetStateColor.resolveWith(
+      (states) => states.contains(WidgetState.selected)
+          ? ColorPalette.highlight.withAlpha(50)
+          : ColorPalette.backgroundSecondary,
+    ),
+    dayPeriodTextColor: WidgetStateColor.resolveWith(
+      (states) => states.contains(WidgetState.selected)
+          ? ColorPalette.foregroundLight
+          : ColorPalette.foreground,
+    ),
+  );
 }
 
 abstract class CustomIcons {

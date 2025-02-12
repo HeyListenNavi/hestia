@@ -19,7 +19,13 @@ class AppRouter extends RootStackRouter {
         page: ResidentsLayoutRoute.page,
         children: [
           AutoRoute(page: ResidentsHomeRoute.page),
-          AutoRoute(page: ResidentsCommunityRoute.page),
+          AutoRoute(
+            page: CommunityShell.page,
+            children: [
+              AutoRoute(page: ResidentsCommunityRoute.page, initial: true),
+              AutoRoute(page: ResidentsCommunityCodes.page),
+            ]
+          ),
           AutoRoute(page: ResidentsServicesRoute.page),
           AutoRoute(page: ResidentsAccountRoute.page),
         ],
